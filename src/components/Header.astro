@@ -1,12 +1,87 @@
 ---
+interface LinksProps {
+  id: number;
+  name: string;
+  url: string;
+}
 
+const links: LinksProps[] = [
+  {
+    id: 1,
+    name: "Proyectos",
+    url: "#projects",
+  },
+  {
+    id: 2,
+    name: "Habilidades",
+    url: "#skills",
+  },
+  {
+    id: 3,
+    name: "Sobre mí",
+    url: "#about",
+  },
+  {
+    id: 4,
+    name: "Contacto",
+    url: "#contact",
+  },
+];
 ---
 
-<header class="p-4">
-  <nav class="bg-white w-fit p-1 rounded-md text-black mx-auto">
-    <a href="#introduction">Proyectos</a>
-    <a href="#">Habilidades</a>
-    <a href="#">Sobre mí</a>
-    <a href="#">Contacto</a>
+<header class="p-4 sticky top-0" id="header">
+  <nav
+    class="w-fit py-2 px-4 rounded-3xl mx-auto space-x-4"
+    id="navigation-links"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.url}
+          class="text-black dark:text-white text-xs hover:text-primary md:text-sm font-nunito"
+        >
+          {link.name}
+        </a>
+      ))
+    }
   </nav>
 </header>
+
+<script>
+  let $introductionSection = document.getElementById(
+    "introduction"
+  ) as HTMLElement;
+
+  let $navigationLinks = document.getElementById(
+    "navigation-links"
+  ) as HTMLElement;
+
+  let observerOptions = {
+    root: null,
+    threshold: 1,
+  };
+
+  let observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        $navigationLinks.classList.remove(
+          "bg-neutral",
+          "transition-all",
+          "duration-500",
+          "border-2",
+          "border-gray-400"
+        );
+      } else {
+        $navigationLinks.classList.add(
+          "bg-neutral",
+          "transition-all",
+          "duration-500",
+          "border-2",
+          "border-gray-400"
+        );
+      }
+    });
+  }, observerOptions);
+
+  observer.observe($introductionSection);
+</script>
