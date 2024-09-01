@@ -1,0 +1,34 @@
+---
+interface Props {
+  color:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "darkLight"
+    | "neutral";
+}
+
+const colors = {
+  primary: "bg-primary border-primary dark:bg-primary dark:border-primary",
+  secondary:
+    "bg-secondary border-secondary dark:bg-secondary dark:border-secondary",
+  success: "bg-success border-success dark:bg-success dark:border-success",
+  danger: "bg-danger border-danger dark:bg-danger dark:border-danger",
+  warning: "bg-warning border-warning dark:bg-warning dark:border-warning",
+  darkLight:
+    "bg-gray-300 border-gray-300 dark:bg-gray-800 dark:border-gray-600",
+  neutral: "bg-neutral border-neutral dark:bg-neutral dark:border-neutral",
+  info: "bg-info border-info dark:bg-info dark:border-info",
+};
+
+const { color } = Astro.props;
+---
+
+<div
+  class={`badge badge-sm py-4 text-black dark:text-white hover:scale-105 transition duration-300 border-2 bg-opacity-50 flex gap-1 ${colors[color]}`}
+>
+  <slot />
+</div>
