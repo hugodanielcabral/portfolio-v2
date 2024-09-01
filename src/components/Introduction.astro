@@ -7,23 +7,25 @@ interface ButtonProps {
   text: string;
   icon: string;
   link: string;
+  download?: string;
 }
 
 const buttonData: ButtonProps[] = [
   {
     text: "Descargar CV",
     icon: "curriculum",
-    link: "#",
+    link: "/public/cv/cv_hugo_daniel_cabral.pdf",
+    download: "cv_hugo_daniel_cabral.pdf",
   },
   {
     text: "Contáctame",
     icon: "contact",
-    link: "#",
+    link: "mailto:'danicabral151@gmail.com'",
   },
   {
     text: "Linkedin",
     icon: "linkedin",
-    link: "#",
+    link: "https://www.linkedin.com/in/hugo-daniel-cabral",
   },
 ];
 ---
@@ -31,12 +33,15 @@ const buttonData: ButtonProps[] = [
 <section id="introduction" class="space-y-4 p-4">
   <div class="flex items-center gap-4">
     <img
-      src="https://robohash.org/181.94.187.231.png"
+      src="/img/avatar-no-background.png"
       alt="Avatar de Daniel Cabral"
       class="rounded-full size-12 md:size-16 bg-primary shadow-md shadow-base-100"
     />
     <a href="#" target="_blank" rel="noopener noreferrer">
-      <Badge color="success">Disponible para trabajar</Badge></a
+      <Badge color="success" size="lg">
+        <Icon name="available" class="text-black dark:text-white" />
+        Disponible para trabajar</Badge
+      ></a
     >
   </div>
   <h1
@@ -55,7 +60,12 @@ const buttonData: ButtonProps[] = [
   <div class="flex flex-wrap gap-2">
     {
       buttonData.map((button) => (
-        <a href={button.link} target="_blank" rel="noopener noreferrer">
+        <a
+          href={button.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          download={button.download}
+        >
           <Button text={button.text}>
             <Icon name={button.icon} class="text-gray-800 dark:text-gray-300" />
           </Button>
