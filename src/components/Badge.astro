@@ -9,6 +9,7 @@ interface Props {
     | "info"
     | "darkLight"
     | "neutral";
+  size?: "sm" | "md" | "lg";
 }
 
 const colors = {
@@ -24,11 +25,18 @@ const colors = {
   info: "bg-info border-info dark:bg-info dark:border-info",
 };
 
-const { color } = Astro.props;
+const { color, size = "sm" } = Astro.props;
 ---
 
 <div
-  class={`badge badge-sm py-4 text-black dark:text-white hover:scale-105 transition duration-300 border-2 bg-opacity-50 flex gap-1 ${colors[color]}`}
+  class:list={[
+    `badge py-4 text-black dark:text-white hover:scale-105 transition duration-300 border-2 bg-opacity-50 flex gap-1 ${colors[color]}`,
+    {
+      "badge-sm": size === "sm",
+      "badge-md": size === "md",
+      "badge-lg": size === "lg",
+    },
+  ]}
 >
   <slot />
 </div>
