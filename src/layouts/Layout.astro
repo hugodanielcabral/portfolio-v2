@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -21,17 +21,15 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <Header />
-  <body>
+  <body
+    class="bg-gradient-to-b from-red-50 to-gray-100 dark:from-gray-800 from-25% dark:from-25% dark:to-base-300 min-h-screen"
+  >
+    <Header />
+
     <slot />
   </body>
 
   <style is:global>
-    :root {
-      --start--color: #023047;
-      --end--color: #000;
-    }
-
     @font-face {
       font-family: "Nunito";
       src: url("/fonts/Nunito-Light.ttf");
@@ -89,20 +87,8 @@ const { title } = Astro.props;
     }
 
     html {
-      font-family: "Nunito", sans-serif;
+      font-family: "Roboto", sans-serif;
       scroll-behavior: smooth;
     }
-
-    body {
-      background-image: linear-gradient(
-        to bottom,
-        var(--start--color),
-        25%,
-        var(--end--color)
-      );
-      min-height: 100vh;
-    }
   </style>
-
-
 </html>
