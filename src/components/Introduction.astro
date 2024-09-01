@@ -1,33 +1,66 @@
 ---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+import Badge from "./Badge.astro";
 
+interface ButtonProps {
+  text: string;
+  icon: string;
+  link: string;
+}
+
+const buttonData: ButtonProps[] = [
+  {
+    text: "Descargar CV",
+    icon: "curriculum",
+    link: "#",
+  },
+  {
+    text: "Contáctame",
+    icon: "contact",
+    link: "#",
+  },
+  {
+    text: "Linkedin",
+    icon: "linkedin",
+    link: "#",
+  },
+];
 ---
 
-<section id="introduction">
-  <div>
+<section id="introduction" class="space-y-4 p-4">
+  <div class="flex items-center gap-4">
     <img
       src="https://robohash.org/181.94.187.231.png"
       alt="Avatar de Daniel Cabral"
+      class="rounded-full size-12 md:size-16 bg-primary shadow-md shadow-base-100"
     />
     <a href="#" target="_blank" rel="noopener noreferrer">
-      <div class="badge badge-primary">Disponible para trabajar</div></a
+      <Badge color="success">Disponible para trabajar</Badge></a
     >
   </div>
-  <h1>Hola, soy Daniel</h1>
-  <p>
-    <strong>Técnico Universitario en Programación</strong>. Especializado en el
-    desarrollo de aplicaciones web. Me apasiona la tecnología y la programación.
-    Siempre estoy en constante aprendizaje.
+  <h1
+    class="text-3xl md:text-5xl font-bold text-black dark:text-white font-roboto"
+  >
+    Hola, soy Daniel Cabral
+  </h1>
+  <p
+    class="text-lg md:text-xl text-black dark:text-gray-200 max-w-2xl text-pretty font-nunito"
+  >
+    <strong class="text-info">Técnico Universitario en Programación</strong>.
+    Especializado en el desarrollo de aplicaciones web. Me apasiona la
+    tecnología y la programación. Siempre estoy en constante aprendizaje.
   </p>
 
-  <div>
-    <a href="#" target="_blank" rel="noopener noreferrer">
-      <button class="btn btn-primary">Descargar CV</button>
-    </a>
-    <a href="#" target="_blank" rel="noopener noreferrer">
-      <button class="btn btn-primary">Contáctame</button>
-    </a>
-    <a href="#" target="_blank" rel="noopener noreferrer">
-      <button class="btn btn-primary">LinkedIn</button>
-    </a>
+  <div class="flex flex-wrap gap-2">
+    {
+      buttonData.map((button) => (
+        <a href={button.link} target="_blank" rel="noopener noreferrer">
+          <Button text={button.text}>
+            <Icon name={button.icon} class="text-gray-800 dark:text-gray-300" />
+          </Button>
+        </a>
+      ))
+    }
   </div>
 </section>

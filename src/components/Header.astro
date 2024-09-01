@@ -38,7 +38,7 @@ const links: LinksProps[] = [
       links.map((link) => (
         <a
           href={link.url}
-          class="text-black dark:text-white text-xs hover:text-primary md:text-sm font-nunito"
+          class="text-black dark:text-white text-xs hover:text-info md:text-sm font-nunito"
         >
           {link.name}
         </a>
@@ -65,19 +65,25 @@ const links: LinksProps[] = [
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         $navigationLinks.classList.remove(
-          "bg-neutral",
+          "backdrop-blur-md",
           "transition-all",
           "duration-500",
           "border-2",
-          "border-gray-400"
+          "border-gray-400",
+          "bg-gray-300",
+          "bg-opacity-50",
+          "dark:bg-gray-800"
         );
       } else {
         $navigationLinks.classList.add(
-          "bg-neutral",
           "transition-all",
           "duration-500",
           "border-2",
-          "border-gray-400"
+          "border-gray-400",
+          "backdrop-blur-md",
+          "bg-gray-300",
+          "bg-opacity-50",
+          "dark:bg-gray-800"
         );
       }
     });
