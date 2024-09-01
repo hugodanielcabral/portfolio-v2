@@ -1,0 +1,148 @@
+---
+import { Icon } from "astro-icon/components";
+import Badge from "./Badge.astro";
+import Button from "./Button.astro";
+
+const projects = [
+  {
+    id: 1,
+    title: "GameNest - Librería de videojuegos",
+    description:
+      "Es un servicio que ofrece una forma de encontrar juegos, guardarlos en una colección, hacer un seguimiento de ellos, calificarlos, y más.",
+    image: "https://picsum.photos/400/250",
+    technologies: [
+      {
+        name: "React.js",
+        icon: "react",
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "tailwindcss",
+      },
+      {
+        name: "Node.js",
+        icon: "nodejs",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "postgresql",
+      },
+    ],
+    preview: "#",
+    code: "#",
+  },
+  {
+    id: 2,
+    title: "Bohemian - Venta de yogures y panes",
+    description:
+      "Landing page de una empresa familiar que se dedica a la venta de yogures y panes. En la misma se puede ver los productos que ofrecen y un formulario de contacto.",
+    image: "https://picsum.photos/400/250",
+    technologies: [
+      {
+        name: "Astro",
+        icon: "astro",
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "tailwindcss",
+      },
+    ],
+    preview: "#",
+    code: "#",
+  },
+  {
+    id: 3,
+    title: "DonC - Servicio de reserva de alojamiento",
+    description:
+      "Diseñé un servicio de reserva de casas, hostelería, etc. En el mismo hice uso técnicas para que el usuario pueda reservar un servicio e incluso poder publicar su propio servicio.",
+    image: "https://picsum.photos/400/250",
+    technologies: [
+      {
+        name: "React.js",
+        icon: "react",
+      },
+      {
+        name: "JavaScript",
+        icon: "javascript",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "tailwindcss",
+      },
+      {
+        name: "Node.js",
+        icon: "nodejs",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "postgresql",
+      },
+    ],
+    code: "#",
+  },
+];
+---
+
+<section class="mt-10 space-y-8 p-4" id="projects">
+  <div class="flex gap-4 items-center">
+    <Icon name="code" class="text-4xl text-black dark:text-white" />
+    <h2 class="text-4xl text-black dark:text-white">Proyectos</h2>
+  </div>
+  {
+    projects.map((project) => (
+      <div class="flex md:flex-row flex-col gap-8">
+        <img
+          src={project.image}
+          alt={project.title}
+          class="rounded-md hover:scale-95 transition-all duration-300 ease-in-out border-2 dark:border-gray-600 border-gray-300 w-full md:w-1/3"
+        />
+        <div class="space-y-2">
+          <h3 class="text-2xl text-black dark:text-white">{project.title}</h3>
+          <ul class="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <li>
+                <Badge color="darkLight">
+                  <Icon name={tech.icon} class="text-white" />
+                  {tech.name}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+          <p class="text-gray-500 dark:text-gray-400 text-lg font-nunito">
+            {project.description}
+          </p>
+
+          <div class="flex gap-4">
+            {project.preview && (
+              <a
+                href={project.preview}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button text="Ver proyecto">
+                  <Icon
+                    name="preview"
+                    class="text-gray-800 dark:text-gray-300"
+                  />
+                </Button>
+              </a>
+            )}
+            <a href={project.code} target="_blank" rel="noopener noreferrer">
+              <Button text="Ver código">
+                <Icon name="github" class="text-gray-800 dark:text-gray-300" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</section>
