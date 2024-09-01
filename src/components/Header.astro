@@ -1,4 +1,6 @@
 ---
+import ThemeController from "./ThemeController.astro";
+
 interface LinksProps {
   id: number;
   name: string;
@@ -13,25 +15,20 @@ const links: LinksProps[] = [
   },
   {
     id: 2,
-    name: "Habilidades",
-    url: "#skills",
-  },
-  {
-    id: 3,
     name: "Sobre mí",
     url: "#about",
   },
   {
-    id: 4,
+    id: 3,
     name: "Contacto",
-    url: "#contact",
+    url: "mailto:'danicabral151@gmail.com'",
   },
 ];
 ---
 
 <header class="p-4 sticky top-0" id="header">
   <nav
-    class="w-fit py-2 px-4 rounded-3xl mx-auto space-x-4"
+    class="w-fit py-2 px-4 rounded-3xl mx-auto space-x-4 flex items-center"
     id="navigation-links"
   >
     {
@@ -44,6 +41,7 @@ const links: LinksProps[] = [
         </a>
       ))
     }
+    <ThemeController />
   </nav>
 </header>
 
