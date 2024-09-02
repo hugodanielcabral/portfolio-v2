@@ -30,14 +30,14 @@ const buttonData: ButtonProps[] = [
 ];
 ---
 
-<section id="introduction" class="space-y-4 p-4">
+<section id="introduction" class="space-y-4 px-4">
   <div class="flex items-center gap-4">
     <img
-      src="/img/avatar-no-background.png"
+      src="/img/avatar-no-background.webp"
       alt="Avatar de Daniel Cabral"
       class="rounded-full size-12 md:size-16 bg-info shadow-md shadow-base-100"
     />
-    <a href="#" target="_blank" rel="noopener noreferrer">
+    <a href={buttonData.at(2)?.link} target="_blank" rel="noopener noreferrer">
       <Badge color="success" size="lg">
         <Icon name="available" class="text-black dark:text-white" />
         Disponible para trabajar</Badge
@@ -53,8 +53,8 @@ const buttonData: ButtonProps[] = [
     class="text-lg md:text-xl text-black dark:text-gray-200 max-w-2xl text-pretty font-nunito"
   >
     <strong class="text-info">Técnico Universitario en Programación</strong>.
-    Especializado en el desarrollo de aplicaciones web. Me apasiona la
-    tecnología y la programación. Siempre estoy en constante aprendizaje.
+    Especializado en el desarrollo de aplicaciones web. Siempre estoy en
+    constante aprendizaje.
   </p>
 
   <div class="flex flex-wrap gap-2">
