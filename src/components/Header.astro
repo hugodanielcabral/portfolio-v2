@@ -1,29 +1,11 @@
 ---
 import ThemeController from "./ThemeController.astro";
 
-interface LinksProps {
-  id: number;
-  name: string;
-  url: string;
+interface Props {
+  links: { id: number; name: string; url: string }[];
 }
 
-const links: LinksProps[] = [
-  {
-    id: 1,
-    name: "Proyectos",
-    url: "#projects",
-  },
-  {
-    id: 2,
-    name: "Sobre mí",
-    url: "#about",
-  },
-  {
-    id: 3,
-    name: "Contacto",
-    url: "mailto:'danicabral151@gmail.com'",
-  },
-];
+const { links } = Astro.props;
 ---
 
 <header class="p-4 sticky z-50 top-0" id="header">

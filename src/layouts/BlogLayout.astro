@@ -1,0 +1,39 @@
+---
+import Header from "../components/Header.astro";
+
+interface Props {
+  title: string;
+}
+
+const links = [
+  {
+    id: 1,
+    name: "Inicio",
+    url: "/",
+  },
+];
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Contrata a Hugo D. Cabral para crear tu aplicación web. Desarrollador especializado en el desarrollo Frontend."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="bg-gradient-to-b from-red-50 to-gray-100 dark:from-gray-800 from-25% dark:from-25% dark:to-base-300 min-h-screen"
+  >
+    <Header links={links} />
+
+    <slot />
+  </body>
+</html>
