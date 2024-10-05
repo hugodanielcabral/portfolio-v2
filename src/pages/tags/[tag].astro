@@ -7,12 +7,18 @@ import type {
 } from "astro";
 import BlogPost from "../../components/BlogPost.astro";
 import BlogLayout from "../../layouts/BlogLayout.astro";
+import Card from "../../components/Card.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
 
 export const getStaticPaths = (async () => {
   const allPosts: MarkdownInstance<{
     title: string;
     tags?: string[];
     url: string;
+    description: string;
+    image: {
+      url: string;
+    };
   }>[] = await Astro.glob("../posts/*.md");
 
   const uniqueTags = [
@@ -39,13 +45,25 @@ const { posts } = Astro.props as Props;
 ---
 
 <BlogLayout title={tag ?? "Daniel Cabral Blog"}>
-  <p>Posts tagged with {tag}</p>
-
-  <ul>
-    {
-      posts.map((post) => (
-        <BlogPost url={post.url ?? "#"} title={post.frontmatter.title} />
-      ))
-    }
-  </ul>
+  <section class="space-y-4 px-4" id="introduction">
+    <SectionTitle title={`Artículos con el tag "${tag}"`} icon="articles" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {
+        posts.map((post) => (
+          <Card
+            imgSrc={post.frontmatter.image.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+          >
+            <a
+              href={post.url}
+              class="btn bg-gray-300 dark:bg-gray-700 hover:bg-opacity-70 border-gray-400 dark:border-gray-600 md:btn-md btn-xs sm:text-sm text-sm md:text-lg text-gray-600 dark:text-gray-300 hover:text-white hover:border-gray-500 dark:hover:border-gray-300 hover:bg-gray-500 dark:hover:bg-gray-500 border"
+            >
+              Leer más
+            </a>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
 </BlogLayout>
