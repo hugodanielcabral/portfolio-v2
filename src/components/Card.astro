@@ -1,0 +1,32 @@
+---
+interface Props {
+  imgSrc: string;
+  title: string;
+  description: string;
+}
+
+const { imgSrc, title, description } = Astro.props;
+---
+
+<div class="card dark:bg-base-100 bg-base-content shadow-xl">
+  <figure>
+    <img src={imgSrc} alt={title} class="min-h-48 w-full" />
+  </figure>
+  <div class="card-body">
+    <h2
+      class="card-title text-sm sm:text-base md:text-lg dark:text-white text-black"
+    >
+      {title}
+      <!--       <div class="badge badge-secondary">NEW</div>
+ -->
+    </h2>
+    <p
+      class="text-xs line-clamp-3 sm:text-sm md:text-base text-gray-700 dark:text-gray-400 font-nunito"
+    >
+      {description}
+    </p>
+    <div class="card-actions justify-end">
+      <slot />
+    </div>
+  </div>
+</div>

@@ -1,22 +1,42 @@
 ---
-import BlogPost from "../components/BlogPost.astro";
+import type { MarkdownInstance } from "astro";
 import BlogLayout from "../layouts/BlogLayout.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 
-const allPosts = await Astro.glob("./posts/*.md");
-
-console.log(allPosts);
+const allPosts: MarkdownInstance<{
+  title: string;
+  url: string;
+  image: {
+    url: string;
+    alt: string;
+  };
+  description: string;
+  pubDate: number;
+}>[] = await Astro.glob("./posts/*.md");
 ---
 
 <BlogLayout title="Blog">
-  <section class="space-y-4 px-4">
-    <h1>Blog</h1>
-    <h2>Mis últimos artículos</h2>
-    <ul>
+  <section class="space-y-4 px-4" id="introduction">
+    <SectionTitle title="Mis artículos" icon="articles" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {
         allPosts.map((post) => (
-          <BlogPost url={post.url ?? "#"} title={post.frontmatter.title} />
+          <Card
+            imgSrc={post.frontmatter.image.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+          >
+            <a
+              href={post.url}
+              class="btn bg-gray-300 dark:bg-gray-700 hover:bg-opacity-70 border-gray-400 dark:border-gray-600 md:btn-md btn-xs sm:text-sm text-sm md:text-lg text-gray-600 dark:text-gray-300 hover:text-white hover:border-gray-500 dark:hover:border-gray-300 hover:bg-gray-500 dark:hover:bg-gray-500 border"
+            >
+              Leer más
+            </a>
+          </Card>
         ))
       }
-    </ul>
+    </div>
   </section>
 </BlogLayout>
