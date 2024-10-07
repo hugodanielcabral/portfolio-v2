@@ -17,7 +17,7 @@ const { links } = Astro.props;
       links.map((link) => (
         <a
           href={link.url}
-          class="text-black dark:text-white text-sm hover:text-info hover:font-bold md:text-lg font-nunito"
+          class="text-black dark:text-white text-sm hover:text-info md:text-lg font-nunito"
         >
           {link.name}
         </a>
@@ -27,47 +27,21 @@ const { links } = Astro.props;
   </nav>
 </header>
 
-<script>
-  let $introductionSection = document.getElementById(
-    "introduction"
-  ) as HTMLElement;
+<style>
+  #navigation-links {
+    backdrop-filter: blur(10px);
+    animation: adjust-header linear both;
+    animation-timeline: scroll();
+    animation-range: 0 200px;
+  }
 
-  let $navigationLinks = document.getElementById(
-    "navigation-links"
-  ) as HTMLElement;
+  @keyframes adjust-header {
+    0% {
+      border: 1px solid transparent;
+    }
 
-  let observerOptions = {
-    root: null,
-    threshold: 0.9,
-  };
-
-  let observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        $navigationLinks.classList.remove(
-          "backdrop-blur-md",
-          "transition-all",
-          "duration-500",
-          "border-2",
-          "border-gray-400",
-          "bg-gray-300",
-          "bg-opacity-50",
-          "dark:bg-gray-800"
-        );
-      } else {
-        $navigationLinks.classList.add(
-          "transition-all",
-          "duration-500",
-          "border-2",
-          "border-gray-400",
-          "backdrop-blur-md",
-          "bg-gray-300",
-          "bg-opacity-50",
-          "dark:bg-gray-800"
-        );
-      }
-    });
-  }, observerOptions);
-
-  observer.observe($introductionSection);
-</script>
+    100% {
+      border: 1px solid white;
+    }
+  }
+</style>
