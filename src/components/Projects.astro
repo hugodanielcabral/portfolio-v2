@@ -9,7 +9,7 @@ const projects = [
     id: 1,
     title: "GameNest - Librería de videojuegos",
     description: [
-      "Desarrollé una librería de juegos en el cual usuario puede registrarse, buscar juegos, ver sus detalles, crear una colección, clasificarlos y más.",
+      "Desarrollando una librería de juegos en el cual usuario puede registrarse, buscar juegos, ver sus detalles, crear una colección, clasificarlos y más.",
       "Mi objetivo a futuro es implementar un sistema de comentarios para que los usuarios puedan compartir sus opiniones sobre los juegos.",
     ],
     image: "/img/gamenest-shot.webp",
@@ -37,6 +37,7 @@ const projects = [
     ],
     preview: "https://gamenest.onrender.com/",
     code: "https://github.com/hugodanielcabral/gamenest",
+    updates: "https://danielcabral.onrender.com/tags/gamenest",
   },
   {
     id: 2,
@@ -100,7 +101,7 @@ const projects = [
   <SectionTitle title="Proyectos" icon="code" />
   {
     projects.map((project) => (
-      <div class="flex md:flex-row flex-col gap-8">
+      <div class="flex lg:flex-row flex-col gap-8">
         <img
           src={project.image}
           alt={project.title}
@@ -130,7 +131,7 @@ const projects = [
             </ul>
           )}
 
-          <div class="flex gap-4">
+          <div class="flex gap-4 flex-wrap">
             {project.preview && (
               <a
                 href={project.preview}
@@ -150,6 +151,21 @@ const projects = [
                 <Icon name="github" class="text-gray-800 dark:text-gray-300" />
               </Button>
             </a>
+
+            {project.updates && (
+              <a
+                href={project.updates}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button text="Ver actualizaciones">
+                  <Icon
+                    name="update"
+                    class="text-gray-800 dark:text-gray-300"
+                  />
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>

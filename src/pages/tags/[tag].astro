@@ -6,8 +6,8 @@ import type {
   MarkdownInstance,
 } from "astro";
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import Card from "../../components/Card.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
+import Card from "../../components/Card.astro";
 
 export const getStaticPaths = (async () => {
   const allPosts: MarkdownInstance<{
@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
     image: {
       url: string;
     };
-  }>[] = await Astro.glob("../posts/*.md");
+  }>[] = await Astro.glob("../blog/posts/*.md");
 
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
