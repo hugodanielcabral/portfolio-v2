@@ -8,10 +8,10 @@ image:
     url: "https://th.bing.com/th/id/OIP.biZN0iHq6KlL97V0qwec6gHaD4?rs=1&pid=ImgDetMain"
     alt: "Imagen de una pizarra en la que está escrito 'Update'"
 tags: ["update", "gamenest", "projects"]
-release: 0.0.1
+release: 0.0.4
 ---
 
-En la versión 1.0.0 realicé varios cambios en el diseño de la página y en el rendimiento de la misma.
+En la versión 0.0.4 realicé varios cambios en el diseño de la página y en el rendimiento de la misma.
 
 ## Nuevas funcionalidades
 
