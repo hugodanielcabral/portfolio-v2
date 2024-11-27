@@ -13,24 +13,6 @@ release: 0.0.6
 
 En la versión **0.0.6** se ha mejorado Inicio y añadido páginas para las plataformas principales (PC, Xbox, PlayStation y Nintendo) y para los géneros (Lucha, Carreras, etc).
 
-## Mejoras
-
-### Inicio
-
-1. Se mejoro las cards de los juegos populares.
-2. Se agregaron las plataformas principales.
-3. Se mejoro el carousel de últimos lanzamientos.
-4. Se agrego las cards para los géneros.
-5. Se agrego los más anticipados con su countdown para el lanzamiento.
-
-## Nuevas Funcionalidades
-
-### Página de plataformas y generos
-
-## ¡Visita mi proyecto!
-
-¿Qué esperas para explorar todas estas novedades? [¡Visita GameNest ahora!](https://gamenest.onrender.com/)En la versión **0.0.6** se han mejorado las funcionalidades del Inicio y se han añadido páginas para las principales plataformas (PC, Xbox, PlayStation y Nintendo) y géneros (Lucha, Carreras, etc.).  
-
 ## Mejoras  
 
 ### Inicio  

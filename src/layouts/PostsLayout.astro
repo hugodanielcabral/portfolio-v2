@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
   >
     <h1 class="text-2xl">{frontmatter.title}</h1>
     <p class="text-xs md:text-base">
-      Fecha de publicación: {new Date(frontmatter.pubDate).toLocaleDateString()}
+      Fecha de publicación: {frontmatter.pubDate}
     </p>
     <img
       src={frontmatter.image.url}
