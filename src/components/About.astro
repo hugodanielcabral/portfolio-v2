@@ -2,44 +2,40 @@
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section class="mt-10 space-y-8 p-4 min-h-[400px]" id="about">
+<section class="mt-10 p-4 min-h-[400px]" id="about">
   <SectionTitle title="Sobre mí" icon="user" />
-  <div class="flex flex-col md:flex-row gap-8 items-center">
-    <div class="space-y-2">
+  <div class="flex flex-col md:flex-row mt-6 gap-8 items-center">
+    <div class="space-y-2 flex-grow">
       <p
         class="dark:text-white text-black font-nunito text-lg md:text-xl text-pretty"
       >
-        Me llamo Hugo Daniel Cabral, aunque mis amigos me llaman Dani. Estudié y
-        me recibí como <strong class="text-info">Técnico en Programación</strong
-        > en la Universidad Tecnológica Nacional en diciembre del 2023.
+        Me llamo Daniel Cabral, aunque mis amigos me llaman Dani. Estudié y me
+        gradué como <strong class="text-info">Técnico en Programación</strong> en
+        la Universidad Tecnológica Nacional en diciembre de 2023.
       </p>
+
       <p
         class="dark:text-white text-black font-nunito text-lg md:text-xl text-pretty"
       >
-        En la universidad me especialicé en el <strong class="text-info"
-          >desarrollo de software, resolución de problemas y el trabajo en
-          equipo</strong
+        Me especializo en el desarrollo <strong class="text-info"
+          >Frontend</strong
+        >, aunque también tengo conocimientos en <strong class="text-info"
+          >Backend</strong
         >.
       </p>
+
       <p
         class="dark:text-white text-black font-nunito text-lg md:text-xl text-pretty"
       >
-        <strong class="text-success"
-          >Las tecnologías que conozco y con las que trabajo son</strong
-        >: HTML, CSS, JavaScript, TypeScript, React, Astro, Tailwind CSS,
-        Node.js, Express, PostgreSQL, Git, GitHub, entre otras.
-      </p>
-      <p
-        class="dark:text-white text-black font-nunito text-lg md:text-xl text-pretty"
-      >
-        <strong class="text-info">Me encanta aprender</strong> y siempre estoy buscando
-        nuevas tecnologías y herramientas para mejorar mis habilidades.
+        Me considero una persona activa, siempre buscando mejorar en las
+        tecnologías que manejo y aprender nuevas herramientas para seguir
+        creciendo 🙂.
       </p>
     </div>
-    <!--  <img
-      src="https://robohash.org/181.94.187.231.png"
-      alt="Avatar de Daniel Cabral"
-      class="bg-primary shadow-md shadow-base-100 rounded-md size-44 md:size-56 border-2 border-gray-300 dark:border-gray-600"
-    /> -->
+    <img
+      src="img/about.webp"
+      alt="Imagen de una Notebook y un café."
+      class="bg-primary shadow-md shadow-base-100 max-w-xs rounded-md border-2 border-gray-300 dark:border-gray-600"
+    />
   </div>
 </section>
