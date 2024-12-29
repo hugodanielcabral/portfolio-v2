@@ -9,7 +9,10 @@ interface Props {
 const { title, icon } = Astro.props;
 ---
 
-<div class="flex gap-4 items-center">
-  <Icon name={icon} class="text-3xl md:text-4xl text-black dark:text-white" />
+<div class="flex gap-x-4 items-start">
+  <Icon
+    name={icon}
+    class="text-3xl md:text-4xl text-gray-500 dark:text-gray-400"
+  />
   <h2 class="text-3xl md:text-4xl text-black dark:text-white">{title}</h2>
 </div>

@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  skills: {
+    id: number;
+    name: string;
+    icon: string;
+    color?: string;
+  }[];
+  border?: boolean;
+}
+
+const { title, skills, border } = Astro.props;
+---
+
+<div
+  class:list={[
+    "grid grid-cols-6 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-3 p-2 last:h-fit",
+    {
+      "lg:border-r lg:border-r-info/35": border === true,
+    },
+  ]}
+>
+  <h3
+    class="col-span-full font-nunito text-lg sm:text-xl md:text-2xl text-center dark:text-white text-black font-medium my-4"
+  >
+    {title}
+  </h3>
+  {
+    skills.map((skill) => (
+      <div
+        class="lg:tooltip col-span-1 w-fit lg:tooltip-right mx-auto mb-1 sm:mb-4 hover:scale-95 transition-transform ease-in-out duration-100 hover:z-10 font-nunito"
+        data-tip={skill.name}
+      >
+        <Icon
+          name={skill.icon}
+          class={`size-8 sm:size-12 md:size-14 ${skill.color ? skill.color : ""}`}
+        />
+      </div>
+    ))
+  }
+</div>

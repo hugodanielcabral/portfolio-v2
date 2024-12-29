@@ -1,0 +1,85 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import SkillSection from "./SkillSection.astro";
+
+const skills = {
+  frontend: [
+    {
+      id: 1,
+      name: "JavaScript",
+      icon: "javascript",
+    },
+    {
+      id: 2,
+      name: "TypeScript",
+      icon: "typescript",
+    },
+    {
+      id: 3,
+      name: "React",
+      icon: "react",
+    },
+    {
+      id: 4,
+      name: "Astro",
+      icon: "astro",
+    },
+    {
+      id: 5,
+      name: "Tailwind CSS",
+      icon: "tailwind",
+    },
+    {
+      id: 6,
+      name: "Bootstrap",
+      icon: "bootstrap",
+    },
+  ],
+  backend: [
+    {
+      id: 1,
+      name: "Node.js",
+      icon: "nodejs",
+    },
+    {
+      id: 2,
+      name: "Express",
+      icon: "expressjs",
+      color: "dark:text-white text-gray-500",
+    },
+    {
+      id: 3,
+      name: "Autenticación de usuarios",
+      icon: "jwt",
+    },
+    {
+      id: 4,
+      name: "PostgreSQL",
+      icon: "postgre",
+    },
+  ],
+  others: [
+    {
+      id: 1,
+      name: "GitHub",
+      icon: "github",
+      color: "dark:text-white text-black",
+    },
+    {
+      id: 2,
+      name: "SCRUM",
+      icon: "scrum",
+      color: "text-green-500",
+    },
+  ],
+};
+---
+
+<section class="mt-10 space-y-8 p-4" id="skills">
+  <SectionTitle title="Habilidades" icon="skills" />
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8">
+    <SkillSection title="Frontend" skills={skills.frontend} border={true} />
+    <SkillSection title="Backend" skills={skills.backend} border={true} />
+    <SkillSection title="Otros" skills={skills.others} />
+  </div>
+</section>
