@@ -9,8 +9,9 @@ const projects = [
     id: 1,
     title: "GameNest - Librería de videojuegos",
     description: [
-      "Desarrollando una librería de juegos en el cual usuario puede buscar juegos, ver sus detalles, crear una colección, clasificarlos y más.",
-      "Mi objetivo a futuro es implementar un sistema de listas y estadísticas de juegos.",
+      "Desarrollo de un servicio que permite a los usuarios encontrar juegos, guardarlos en una colección personal, calificarlos, y realizar otras acciones relacionadas.",
+      "Implementación de autenticación de usuarios utilizando cookies con JWT (JSON Web Token).",
+      "Utilicé el Context API de React para manejar el estado global entre componentes.",
     ],
     image: "/img/gamenest-shot.webp",
     technologies: [
@@ -104,7 +105,7 @@ const projects = [
         <img
           src={project.image}
           alt={project.title}
-          class="rounded-md hover:scale-95 transition-all duration-300 ease-in-out border-2 dark:border-gray-600 border-gray-300 w-full md:w-1/3 "
+          class="rounded-md hover:scale-95 transition-all duration-300 ease-in-out border-2 dark:border-gray-600 border-gray-300 w-full lg:max-w-xs max-h-96"
         />
         <div class="space-y-2">
           <h3 class="text-2xl text-black dark:text-white">{project.title}</h3>
@@ -119,11 +120,11 @@ const projects = [
             ))}
           </ul>
           {typeof project.description === "string" ? (
-            <p class="text-gray-500 dark:text-gray-400 text-lg font-nunito">
+            <p class="text-gray-700 dark:text-gray-300 text-lg font-nunito">
               {project.description}
             </p>
           ) : (
-            <ul class="text-gray-500 dark:text-gray-400 text-lg font-nunito">
+            <ul class="text-gray-700 dark:text-gray-300 space-y-1 text-sm sm:text-base font-nunito md:text-lg">
               {project.description.map((desc) => (
                 <li>{desc}</li>
               ))}
